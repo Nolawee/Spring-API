@@ -4,11 +4,15 @@ import com.nolaweemengist.core.BaseEntity;
 import com.nolaweemengist.review.Review;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 public class Course extends BaseEntity{
+    @NotNull
+    @Size(min = 2, max = 140)
     private String title;
     private String url;
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
